@@ -1,36 +1,29 @@
-class Plinko
-{
-	constructor(x,y)
-	{
-		var options={
-			isStatic:true,
-			restitution:1,
-			friction:0,
-		
+class Plinko {
+    constructor(x, y) {
+        var options = {
+            restitution: 1,
+            friction: 0,
+            isStatic:true
         }
-			
-		this.x=x;
-		this.y=y;
-	    this.r=10;
-		this.body=Bodies.circle(this.x, this.y, this.r, options);
-	
+        this.r = 10;
+        this.body = Bodies.circle(x, y, this.r, options);
+        
         World.add(world, this.body);
-		
-	}
-	display(){       
-			var plinkopos=this.body.position;	
-			var angle=this.body.angle;	
+    }
+    display() {
 
-			push()
-			translate(plinkopos.x, plinkopos.y);
-			rotate(angle);
-			imageMode(CENTER);
-			noStroke();
-			fill(255);
-			ellipseMode(RADIUS);
+        var pos = this.body.position;
+        var angle = this.body.angle;
 
-            ellipse(0,0,this.r,this.r);
-			pop()
-			
-	}
+        push();
+        translate(pos.x, pos.y);
+        rotate(angle);
+        imageMode(CENTER);
+        noStroke();
+        fill("white");
+        ellipseMode(RADIUS);
+        ellipse(0,0,this.r,this.r);
+        pop();
+    }
+
 }
